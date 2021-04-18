@@ -11,7 +11,7 @@ E13 = True
 E23 = True
 
 
-Disp = 8*10**-6
+Disp = 8*10**-4                 #8E-6 = 0.1% strain, 8E-4 = 10% strain
 
 
 if E1 == True:
@@ -27,7 +27,7 @@ if E1 == True:
     #DispBoundary.write('RP5, 2, 2, 0 \n')
     DispBoundary.write('RP5, 3, 3, 0 \n')
 
-    DispBoundary.write('RP6, 1, 1, ' + str(Disp) + '\n')
+    DispBoundary.write('RP6, 1, 1, ' + str(-Disp) + '\n')
     DispBoundary.write('RP6, 2, 2, 0 \n')
     DispBoundary.write('RP6, 3, 3, 0 \n')
 

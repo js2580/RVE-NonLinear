@@ -1,1 +1,1 @@
-abaqus job=PBC_RVE_single_fibre_case2 input=PBC_RVE_single_fibre_case2.inp interactive ask_delete=NO 
+abaqus job=PBC_RVE_single_fibre_case2 interactive ask_delete=NO 

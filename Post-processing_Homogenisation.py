@@ -7,18 +7,18 @@ import sys
 extrude_dept = 0.008
 
 def compute_stiffness(name,extrude_dept):
-    E11 = []
-    E22 = []
-    E33 = []
-    G12 = []
-    G13 = []
-    G23 = []
-    v12 = []
-    v13 = []
-    v21 = []
-    v23 = []
-    v31 = []
-    v32 = []
+    E11 = 0
+    E22 = 0
+    E33 = 0
+    G12 = 0
+    G13 = 0
+    G23 = 0
+    v12 = 0
+    v13 = 0
+    v21 = 0
+    v23 = 0
+    v31 = 0
+    v32 = 0
     #define parameters
     area = extrude_dept**2
     length = extrude_dept
@@ -278,35 +278,27 @@ def compute_stiffness(name,extrude_dept):
 # v31 = []
 # v32 = []
 material_output = open('Homogenised material properties output.txt','w')
-for case in range(1,10):
+for case in range(1,7):
     
     E11, E22, E33, G12, G13, G23, v12, v13, v21, v23, v31, v32 = compute_stiffness(str(case),extrude_dept)
-    # if E11 is not None:
-    #     material_output.write('E11 = %16.8E \n' % (E11))
-    # elif E22 is not None:
-    #     material_output.write('E22 = %16.8E \n' % (E22))
-    # elif E33 is not None:
-    #     material_output.write('E33 = %16.8E \n' % (E33))
-    # elif G12 is not None:
-    #     material_output.write('G12 = %16.8E \n' % (G12))
-    # elif G13 is not None:
-    #     material_output.write('G13 = %16.8E \n' % (G13))
-    # elif G23 is not None:
-    #     material_output.write('G23 = %16.8E \n' % (G23))
-    # elif v12 is not None:
-    #     material_output.write('v12 = %16.8E \n' % (v12))
-    # elif E22 is not None:
-    #     material_output.write('E22 = %16.8E \n' % (E22))
-    # elif v13 is not None:
-    #     material_output.write('v13 = %16.8E \n' % (v13))
-    # elif v21 is not None:
-    #     material_output.write('v21 = %16.8E \n' % (v21))
-    # elif v23 is not None:
-    #     material_output.write('v23 = %16.8E \n' % (v23))
-    # elif v31 is not None:
-    #     material_output.write('v31 = %16.8E \n' % (v31))
-    # elif v32 is not None:
-    #     material_output.write('v32 = %16.8E \n' % (v32))
+    if E11 != 0:
+        material_output.write('E11 = %8.2f \n' % (E11))
+    elif E22 != 0:
+        material_output.write('E22 = %8.2f \n' % (E22))
+    elif E33 != 0:
+        material_output.write('E33 = %8.2f \n' % (E33))
+    elif G12 != 0:
+        material_output.write('G12 = %8.2f \n' % (G12))
+    elif G13 != 0:
+        material_output.write('G13 = %8.2f \n' % (G13))
+    elif G23 != 0:
+        material_output.write('G23 = %8.2f \n' % (G23))
+    if v31 != 0:
+        material_output.write('v31 = %8.2f \n' % (v31))
+    if v32 != 0:
+        material_output.write('v32 = %8.2f \n' % (v32))
+    if v12 != 0:
+        material_output.write('v12 = %8.2f \n' % (v12))
 
 
 material_output.close()
